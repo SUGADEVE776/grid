@@ -1,2 +1,5 @@
 django==5.0.6
 pillow==10.3.0
+pre-commit==3.7.1
+django-environ==0.11.2
+mysqlclient==2.2.4
