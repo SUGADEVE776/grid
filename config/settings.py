@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 
 import environ
@@ -23,6 +24,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = "access.User"
+
 
 # Application definition
 
@@ -33,6 +36,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "access",
+    "common",
 ]
 
 MIDDLEWARE = [
@@ -46,6 +52,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
+
+TEMPLATES_DIR = os.path.join(BASE_DIR, "templates/")
 
 TEMPLATES = [
     {
@@ -113,7 +121,16 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATIC_FILES_DIR = os.path.join(BASE_DIR, "static/")
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MEDIA_URL = "/media/"
+
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")

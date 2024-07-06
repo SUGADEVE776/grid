@@ -1,6 +1,10 @@
 #env
 venv/
 
+# Django Migrations
+migrations/
+!**/migrations/__init__.py
+
 #---.env files---
 .env.example
 .env
