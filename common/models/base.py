@@ -29,3 +29,12 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+
+    @classmethod
+    def get_model_fields(cls):
+        """
+        Returns all the model fields. This does not
+        include the defined M2M & related fields.
+        """
+
+        return cls._meta.fields

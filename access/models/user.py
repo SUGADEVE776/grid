@@ -3,6 +3,7 @@ from django.db import models
 
 from access.config import GenderChoices, UserTypeChoices
 from access.manager import AppUserManagerQuerySet
+from common.model_fields import AppPhoneNumberField
 from common.models import (
     COMMON_BLANK_AND_NULLABLE_FIELD_CONFIG,
     COMMON_CHAR_FIELD_MAX_LENGTH,
@@ -15,6 +16,7 @@ class User(BaseModel, AbstractUser):
 
     objects = AppUserManagerQuerySet.as_manager()
 
+    phone_number = AppPhoneNumberField(**COMMON_BLANK_AND_NULLABLE_FIELD_CONFIG)
     email = models.EmailField(blank=False, unique=True)
     type = models.CharField(
         choices=UserTypeChoices.choices,

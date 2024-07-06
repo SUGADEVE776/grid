@@ -3,3 +3,7 @@ pillow==10.3.0
 pre-commit==3.7.1
 django-environ==0.11.2
 mysqlclient==2.2.4
+django-phonenumber-field[phonenumbers]==7.1.0
+phonenumbers==8.13.17
+djangorestframework==3.14.0
+requests==2.31.0

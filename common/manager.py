@@ -41,3 +41,17 @@ class BaseObjectManagerQuerySet(QuerySet):
             ValidationError,  # invalid UUID
         ):
             return None
+
+
+class StatusObjectManagerQuerySet(BaseObjectManagerQuerySet):
+    """Get the object based on the status"""
+
+    def active(self, *args, **kwargs):
+        """function to get active objects"""
+
+        return self.filter(is_active=True)
+
+    def inactive(self, *args, **kwargs):
+        """function to get inactive objects"""
+
+        return self.filter(is_active=True)
