@@ -3,6 +3,8 @@ from pathlib import Path
 
 import environ
 
+from .database import get_secret
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -77,6 +79,18 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+DATABASES = {
+    "default": {
+        "ENGINE": env("MYSQL_ENGINE"),
+        "NAME": env("MYSQL_DB_NAME"),
+        "HOST": env("MYSQL_HOST"),
+        "PORT": env("MYSQL_PORT"),
+        "USER": env("MYSQL_USERNAME"),
+        "PASSWORD": env("MYSQL_PASSWORD"),
+    }
+}
+
+db_creds = get_secret()
 DATABASES = {
     "default": {
         "ENGINE": env("MYSQL_ENGINE"),

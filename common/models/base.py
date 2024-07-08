@@ -38,3 +38,7 @@ class BaseModel(models.Model):
         """
 
         return cls._meta.fields
+
+    @classmethod
+    def get_all_meta_fields(cls):
+        return cls._meta.get_fields()

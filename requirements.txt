@@ -7,3 +7,4 @@ django-phonenumber-field[phonenumbers]==7.1.0
 phonenumbers==8.13.17
 djangorestframework==3.14.0
 requests==2.31.0
+boto3==1.34.140
